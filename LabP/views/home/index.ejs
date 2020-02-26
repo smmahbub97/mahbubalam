@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+</head>
+<body>
+	<div>
+			<h2>Welcome home, <%= user.ename%></h2> 		
+	</div>
+
+	<a href="/home/adduser">Create user</a> |
+	<a href="/home/view_users">view users</a> |
+	<a href="/logout">Logout</a><br><br><br>
+	<h2>Id:</h2> <%= user.id %> <br>
+	<h2>Username:</h2>  <%= user.username %>
+</body>
+</html>
