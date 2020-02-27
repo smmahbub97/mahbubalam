@@ -12,7 +12,17 @@ module.exports ={
 		});
 	},
 	getByUname: function(uname, callback){
-		var sql = "select * from user where username=?";
+		var sql = "select * from admin where ausername=?";
+		db.getResult(sql, [uname], function(result){
+			if(result.length > 0){
+				callback(result[0]);
+			}else{
+				callback(null);
+			}
+		});
+	},
+	getByUname2: function(uname, callback){
+		var sql = "select * from member where musername=?";
 		db.getResult(sql, [uname], function(result){
 			if(result.length > 0){
 				callback(result[0]);
@@ -23,8 +33,8 @@ module.exports ={
 	},
 	validateadmin: function(user, callback){
 		var sql = "select * from admin where ausername=? and apassword=?";
-		db.getResult(sql, [user.username, user.password], function(result){
-			if(result.length > 0){
+		db.getResult(sql, [user.uname, user.password], function(result){
+			if(result != null){
 				callback(true);
 			}else{
 				callback(false);
@@ -33,8 +43,8 @@ module.exports ={
 	},
 	validatemember: function(user, callback){
 		var sql = "select * from member where musername=? and mpassword=?";
-		db.getResult(sql, [user.username, user.password], function(result){
-			if(result.length > 0){
+		db.getResult(sql, [user.uname, user.password], function(result){
+			if(result != null){
 				callback(true);
 			}else{
 				callback(false);

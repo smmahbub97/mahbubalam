@@ -20,6 +20,16 @@ router.get('/', function(req, res){
 	}
 });
 
+router.get('/member', function(req, res){	
+	if(req.cookies['username'] != null){
+		userModel.getByUname2(req.cookies['username'], function(result){
+			res.render('home/member/index', {user: result});
+		});
+	}else{
+		res.redirect('/logout');
+	}
+});
+
 router.get('/alluser', function(req, res){
 	userModel.getAll(function(results){
 		if(results.length > 0){

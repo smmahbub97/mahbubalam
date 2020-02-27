@@ -28,7 +28,7 @@ if(req.body.type=="admin"){
 		userModel.validatemember(user, function(status){
 			if(status){
 				res.cookie('username', req.body.uname);
-				res.redirect('/home');
+				res.redirect('/home/member');
 			}else{
 				res.redirect('/login');
 			}
