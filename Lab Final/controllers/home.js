@@ -32,7 +32,7 @@ router.get('/member', function(req, res){
 
 router.get('/alluser', function(req, res){
 	userModel.getAll(function(results){
-		if(results.length > 0){
+		if(results !=  0){
 			res.render('home/alluser', {userlist: results});
 		}else{
 			res.send('invalid username/password');

@@ -14,6 +14,9 @@
 	<table border="1">
 		<tr>
 			<td>ID</td>
+			<td>Name</td>
+			<td>Address</td>
+			<td>Phone Number</td>
 			<td>Username</td>
 			<td>Password</td>
 			<td>Action</td>
@@ -21,10 +24,13 @@
 		<% for(var i=0; i < userlist.length; i++){ %>
 		<tr>
 			<td><%= userlist[i].mid %></td>
+			<td><%= userlist[i].mname %></td>
+			<td><%= userlist[i].maddress %></td>
+			<td><%= userlist[i].mphone %></td>
 			<td><%= userlist[i].musername %></td>
 			<td><%= userlist[i].mpassword %></td>
 			<td>
-				<a href="/home/delete/<%= userlist[i].id %>">DELETE</a>  
+				<a href="/home/delete/<%= userlist[i].mid %>">DELETE</a>  
 			</td>
 		</tr>
 		<% } %>

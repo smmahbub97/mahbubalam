@@ -53,16 +53,16 @@ module.exports ={
 	},
 	
 	getAll:function(callback){
-		var sql = "select * from user";
+		var sql = "select * from member";
 		db.getResult(sql, null, function(results){
-			if(results.length > 0){
+			if(results != 0){
 				callback(results);
 			}else{
 				callback(null);
 			}
 		});
 	},
-	insert: function(user, callback){
+	/*insert: function(user, callback){
 		var sql = "insert into user values(?,?,?,?)";
 		db.execute(sql, [null, user.username, user.password, user.type], function(status){
 			if(status){
@@ -71,9 +71,10 @@ module.exports ={
 				callback(false);
 			}
 		});
-	},
+	},*/
+	
 	delete: function(id, callback){
-		var sql = "delete from user where id=?";
+		var sql = "delete from member where mid=?";
 		db.execute(sql, [id], function(status){
 			if(status){
 				callback(true);
@@ -81,8 +82,9 @@ module.exports ={
 				callback(false);
 			}
 		});
-	},
-	update: function(user, callback){
+	}
+	
+	/*update: function(user, callback){
 		var sql = "update user set username=?, password=?, type=? where id=?";
 		db.execute(sql, [user.username, user.password, user.type, user.id], function(status){
 			if(status){
@@ -91,6 +93,6 @@ module.exports ={
 				callback(false);
 			}
 		});
-	}
+	}*/
 	
 }
