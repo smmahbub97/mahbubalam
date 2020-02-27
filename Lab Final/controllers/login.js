@@ -11,10 +11,11 @@ router.post('/', function(req, res){
 		
 		var user ={
 			username: req.body.uname,
-			password: req.body.password
+			password: req.body.password,
+			type: req.body.type
 		};
-
-		userModel.validate(user, function(status){
+if(req.body.type=="admin"){
+		userModel.validateadmin(user, function(status){
 			if(status){
 				res.cookie('username', req.body.uname);
 				res.redirect('/home');
@@ -22,6 +23,17 @@ router.post('/', function(req, res){
 				res.redirect('/login');
 			}
 		});
+	}
+	else if(req.body.type=="member"){
+		userModel.validatemember(user, function(status){
+			if(status){
+				res.cookie('username', req.body.uname);
+				res.redirect('/home');
+			}else{
+				res.redirect('/login');
+			}
+		});
+	}
 });
 
 module.exports = router;

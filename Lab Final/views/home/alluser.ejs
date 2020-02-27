@@ -20,11 +20,10 @@
 		</tr>
 		<% for(var i=0; i < userlist.length; i++){ %>
 		<tr>
-			<td><%= userlist[i].id %></td>
-			<td><%= userlist[i].username %></td>
-			<td><%= userlist[i].password %></td>
+			<td><%= userlist[i].mid %></td>
+			<td><%= userlist[i].musername %></td>
+			<td><%= userlist[i].mpassword %></td>
 			<td>
-				<a href="/home/edit/<%= userlist[i].id %>">EDIT</a> | 
 				<a href="/home/delete/<%= userlist[i].id %>">DELETE</a>  
 			</td>
 		</tr>
